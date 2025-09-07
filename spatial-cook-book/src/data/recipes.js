@@ -5,6 +5,7 @@ export const recipes = [
     cookTime: "20 mins",
     difficulty: "Medium",
     image: "/recipeImages/spaghetti-carbonara.jpg",
+    youtubeId: "D_2DBLAt57c",
     ingredients: [
       "400g spaghetti pasta",
       "200g pancetta or bacon",
@@ -29,6 +30,7 @@ export const recipes = [
     cookTime: "45 mins",
     difficulty: "Hard",
     image: "/recipeImages/chicken-tikka-masala.jpg",
+    youtubeId: "wm5vqZcl8BQ",
     ingredients: [
       "500g chicken breast, cubed",
       "200ml Greek yogurt",
@@ -56,6 +58,7 @@ export const recipes = [
     cookTime: "25 mins",
     difficulty: "Easy",
     image: "/recipeImages/chocolate-chip-cookies.jpg",
+    youtubeId: "3vUtRRZG0xY",
     ingredients: [
       "200g butter, softened",
       "150g brown sugar",

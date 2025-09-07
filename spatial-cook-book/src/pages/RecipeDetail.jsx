@@ -4,6 +4,8 @@ import { getRecipeById } from '../data/recipes'
 import IngredientsList from '../components/IngredientsList'
 import InstructionsList from '../components/InstructionsList'
 import TimersList from '../components/TimersList'
+import YouTubeEmbed from '../components/YouTubeEmbed'
+
 
 export default function RecipeDetail() {
   const { id } = useParams()
@@ -83,24 +85,21 @@ export default function RecipeDetail() {
         </motion.div>
 
         {/* Center Container */}
-        <div style={{ flex: 2, display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          {/* Video Popup */}
+        <div style={{ flex: 2, display: 'flex', flexDirection: 'column', gap: '20px' ,
+          height: '100%',
+          minWidth: 0
+        }}>
+          {/* Video Section */}
           <motion.div 
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
             style={{
-              flex: 1,
-              background: '#000',
-              borderRadius: '15px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: 'white',
-              fontSize: '1.2rem'
+              flex: '1 1 50%',
+              minHeight: '300px'
             }}
           >
-            <div>🎥 Recipe Video<br /><small>(Video player would go here)</small></div>
+            <YouTubeEmbed videoId={recipe.youtubeId} />
           </motion.div>
 
           {/* Instructions Popup */}
