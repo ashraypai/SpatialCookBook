@@ -12,31 +12,36 @@ const IngredientsList = ({ ingredients }) => {
   }
 
   return (
-    <div className="popup" style={{
+    <div style={{
       background: 'white',
       borderRadius: '15px',
-      padding: '20px',
       boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
-      flex: 1,
-      maxHeight: '100%',
-      overflowY: 'auto'
+      width: '100%',
+      boxSizing: 'border-box',
+      minHeight: '200px' // Minimum height to ensure it's visible
     }}>
       <h3 style={{
-        marginBottom: '15px',
+        margin: '0',
+        padding: '20px',
         color: '#333',
         borderBottom: '2px solid #667eea',
-        paddingBottom: '10px'
+        background: 'white',
+        borderRadius: '15px 15px 0 0',
+        textAlign: 'center'
       }}>
         📝 Ingredients
       </h3>
-      <div>
+      <div style={{
+        padding: '15px 20px 20px 20px',
+        boxSizing: 'border-box'
+      }}>
         {ingredients.map((ingredient, index) => (
           <motion.div
             key={index}
             whileHover={{ x: 5 }}
             style={{
               display: 'flex',
-              alignItems: 'center',
+              alignItems: 'flex-start',
               marginBottom: '10px',
               padding: '10px',
               background: '#f8f9fa',
@@ -49,13 +54,23 @@ const IngredientsList = ({ ingredients }) => {
               id={`ingredient-${index}`}
               checked={checkedItems[index] || false}
               onChange={() => handleCheck(index)}
-              style={{ marginRight: '10px', transform: 'scale(1.2)' }}
+              style={{ 
+                marginRight: '10px', 
+                transform: 'scale(1.2)', 
+                flexShrink: 0,
+                marginTop: '2px'
+              }}
             />
             <label
               htmlFor={`ingredient-${index}`}
               style={{
                 textDecoration: checkedItems[index] ? 'line-through' : 'none',
-                opacity: checkedItems[index] ? 0.6 : 1
+                opacity: checkedItems[index] ? 0.6 : 1,
+                cursor: 'pointer',
+                flex: 1,
+                wordWrap: 'break-word',
+                overflowWrap: 'break-word',
+                lineHeight: '1.4'
               }}
             >
               {ingredient}

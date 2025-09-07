@@ -17,24 +17,29 @@ const TimersList = ({ instructions }) => {
   }
 
   return (
-    <div className="popup" style={{
+    <div style={{
       background: 'white',
       borderRadius: '15px',
-      padding: '20px',
       boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
-      flex: 1,
-      maxHeight: '100%',
-      overflowY: 'auto'
+      width: '100%',
+      boxSizing: 'border-box',
+      minHeight: '200px'
     }}>
       <h3 style={{
-        marginBottom: '15px',
+        margin: '0',
+        padding: '20px',
         color: '#333',
         borderBottom: '2px solid #667eea',
-        paddingBottom: '10px'
+        background: 'white',
+        borderRadius: '15px 15px 0 0',
+        textAlign: 'center'
       }}>
         ⏰ Smart Timers
       </h3>
-      <div>
+      <div style={{
+        padding: '15px 20px 20px 20px',
+        boxSizing: 'border-box'
+      }}>
         {timers.map((timer, index) => {
           const timerId = `timer-${index}`
           const activeTimer = activeTimers[timerId]

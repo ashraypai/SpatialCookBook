@@ -12,24 +12,29 @@ const InstructionsList = ({ instructions }) => {
   }
 
   return (
-    <div className="popup" style={{
+    <div style={{
       background: 'white',
       borderRadius: '15px',
-      padding: '20px',
       boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
-      flex: 1,
-      maxHeight: '50%',
-      overflowY: 'auto'
+      width: '100%',
+      boxSizing: 'border-box',
+      minHeight: '200px'
     }}>
       <h3 style={{
-        marginBottom: '15px',
+        margin: '0',
+        padding: '20px',
         color: '#333',
         borderBottom: '2px solid #667eea',
-        paddingBottom: '10px'
+        background: 'white',
+        borderRadius: '15px 15px 0 0',
+        textAlign: 'center'
       }}>
         👨‍🍳 Instructions
       </h3>
-      <div>
+      <div style={{
+        padding: '15px 20px 20px 20px',
+        boxSizing: 'border-box'
+      }}>
         {instructions.map((instruction, index) => (
           <motion.div
             key={index}
@@ -39,9 +44,9 @@ const InstructionsList = ({ instructions }) => {
             whileHover={{ x: 5 }}
             style={{
               display: 'flex',
-              alignItems: 'center',
-              marginBottom: '10px',
-              padding: '10px',
+              alignItems: 'flex-start',
+              marginBottom: '15px',
+              padding: '15px',
               background: '#f8f9fa',
               borderRadius: '8px',
               transition: 'all 0.2s ease'
@@ -52,13 +57,24 @@ const InstructionsList = ({ instructions }) => {
               id={`instruction-${index}`}
               checked={checkedSteps[index] || false}
               onChange={() => handleStepCheck(index)}
-              style={{ marginRight: '10px', transform: 'scale(1.2)' }}
+              style={{ 
+                marginRight: '15px', 
+                transform: 'scale(1.2)', 
+                flexShrink: 0,
+                marginTop: '2px'
+              }}
             />
             <label
               htmlFor={`instruction-${index}`}
               style={{
                 textDecoration: checkedSteps[index] ? 'line-through' : 'none',
-                opacity: checkedSteps[index] ? 0.6 : 1
+                opacity: checkedSteps[index] ? 0.6 : 1,
+                cursor: 'pointer',
+                flex: 1,
+                wordWrap: 'break-word',
+                overflowWrap: 'break-word',
+                lineHeight: '1.5',
+                fontSize: '1rem'
               }}
             >
               <strong>Step {index + 1}:</strong> {instruction}
